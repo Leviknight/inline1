@@ -18,7 +18,7 @@ U = '\033[2m' #Underline
 N = '\033[0m' #Normal
 #Pastikan Proxy List 1 Dir Dengan Script Python Ini
 proxy_list = "proxylist.txt"
-perangkat = ['useragent.txt [en]']
+User-agent = "useragent.txt"
 
 mesin = ['http://google.com','http://bing.com','http://facebook.com','http://twitter.com','http://yahoo.com']
 print B+G+""
@@ -50,13 +50,13 @@ def Autoclicker(proxy1):
         time.sleep(2)
 	proxy_set = urllib2.ProxyHandler({"http" : "%s:%d" % (proxy[0], int(proxy[1]))})
 	opener = urllib2.build_opener(proxy_set, urllib2.HTTPHandler)
-	opener.addheaders = [('User-agent', random.choice(perangkat)),
+	opener.addheaders = [('User-agent', random.choice(User-agent)),
 						('Refferer', random.choice(mesin))]
 	urllib2.install_opener(opener)
 	f = urllib2.urlopen(ini_url)
 	#187034
 	if "google.com" in f.read():
-	   print B+G+"[*] Berhasil ,"+"\n"+B+BL+"#-----------------------------------------#\n"+N
+	   print B+G+"[*] Berhasil "+"\n"+B+BL+"#-----------------------------------------#\n"+N
 	else:
 	   print B+R+"[*] Link Gagal Di Kunjungi !\n"+B+BL+"#-----------------------------------------#\n"+N
            print B+R+"[!] Proxy / Connection Failed\n"+B+BL+"#-----------------------------------------#\n"+N
